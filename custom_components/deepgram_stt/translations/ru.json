@@ -1,0 +1,46 @@
+{
+  "title": "Deepgram: распознавание речи",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Подключение к Deepgram",
+        "description": "Введите API-ключ Deepgram. Записанный Assist звук отправляется в Deepgram для распознавания.",
+        "data": {
+          "api_key": "API-ключ",
+          "model": "Модель"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Повторное подключение к Deepgram",
+        "description": "Предыдущий API-ключ отклонён. Введите новый API-ключ Deepgram.",
+        "data": {
+          "api_key": "API-ключ"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Deepgram отклонил API-ключ.",
+      "cannot_connect": "Не удалось подключиться к Deepgram. Проверьте сеть и повторите попытку.",
+      "unknown": "Неожиданная ошибка. Проверьте журнал Home Assistant."
+    },
+    "abort": {
+      "already_configured": "Этот API-ключ Deepgram уже настроен.",
+      "reauth_successful": "Повторная аутентификация выполнена успешно.",
+      "reauth_failed": "Не удалось выполнить повторную аутентификацию: запись конфигурации больше не существует."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Параметры распознавания Deepgram",
+        "description": "Модель и параметры форматирования применяются ко всем запросам Assist.",
+        "data": {
+          "model": "Модель",
+          "smart_format": "Умное форматирование",
+          "punctuate": "Знаки препинания",
+          "numerals": "Преобразовывать числа в цифры"
+        }
+      }
+    }
+  }
+}

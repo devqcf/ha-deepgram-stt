@@ -1,0 +1,13 @@
+{
+  "domain": "deepgram_stt",
+  "name": "Deepgram Speech-to-Text",
+  "codeowners": ["@devqcf"],
+  "config_flow": true,
+  "dependencies": ["stt"],
+  "documentation": "https://github.com/devqcf/ha-deepgram-stt",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/devqcf/ha-deepgram-stt/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}

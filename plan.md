@@ -71,16 +71,16 @@ handoff.md
 
 ## Implementation checklist
 
-- [ ] Create `plan.md` and `handoff.md`.
-- [ ] Create public GitHub repository `devqcf/ha-deepgram-stt`.
-- [ ] Add HACS metadata and integration scaffold.
-- [ ] Implement WAV normalization and response extraction helpers.
-- [ ] Implement Deepgram API client with timeout and error mapping.
-- [ ] Implement STT entity with per-request language and model options.
-- [ ] Implement config, reauth, and options flows.
-- [ ] Add English and Russian translations.
-- [ ] Add README with HACS install and Russian Assist setup.
-- [ ] Add unit tests and CI validation.
+- [x] Create `plan.md` and `handoff.md`.
+- [x] Create public GitHub repository `devqcf/ha-deepgram-stt`.
+- [x] Add HACS metadata and integration scaffold.
+- [x] Implement WAV normalization and response extraction helpers.
+- [x] Implement Deepgram API client with timeout and error mapping.
+- [x] Implement STT entity with per-request language and model options.
+- [x] Implement config, reauth, and options flows.
+- [x] Add English and Russian translations.
+- [x] Add README with HACS install and Russian Assist setup.
+- [x] Add unit tests and CI validation.
 - [ ] Publish release `1.0.0`.
 - [ ] Add the new repo to HACS on the test Home Assistant instance.
 - [ ] Install `1.0.0` through HACS and restart Home Assistant.

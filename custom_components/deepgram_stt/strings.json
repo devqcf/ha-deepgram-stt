@@ -1,0 +1,46 @@
+{
+  "title": "Deepgram Speech-to-Text",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Deepgram",
+        "description": "Enter your Deepgram API key. Audio recorded by Assist is sent to Deepgram for transcription.",
+        "data": {
+          "api_key": "API key",
+          "model": "Model"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reconnect to Deepgram",
+        "description": "The previous API key was rejected. Enter a new Deepgram API key.",
+        "data": {
+          "api_key": "API key"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "The Deepgram API key was rejected.",
+      "cannot_connect": "Unable to connect to Deepgram. Check your network and try again.",
+      "unknown": "Unexpected error. Check the Home Assistant logs."
+    },
+    "abort": {
+      "already_configured": "This Deepgram API key is already configured.",
+      "reauth_successful": "Reauthentication was successful.",
+      "reauth_failed": "Reauthentication failed because the config entry no longer exists."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Deepgram transcription options",
+        "description": "The model and formatting options apply to every Assist request.",
+        "data": {
+          "model": "Model",
+          "smart_format": "Smart formatting",
+          "punctuate": "Punctuation",
+          "numerals": "Convert numbers to digits"
+        }
+      }
+    }
+  }
+}

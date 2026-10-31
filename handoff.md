@@ -6,11 +6,13 @@ private test-host address in this file.**
 
 ## Current status
 
-- Phase: bootstrap
-- Repository: `devqcf/ha-deepgram-stt` (public, to be created)
+- Phase: implementation complete, awaiting release and deployment
+- Repository: `devqcf/ha-deepgram-stt` (public, created; bootstrap commit `0bc9dcc`)
 - Local path: `/Users/meowser/Projects/ha-deepgram-stt`
 - Release: not published
 - HA deployment: not started
+- Local checks: 14 unit tests pass; `compileall` passes; JSON validates;
+  imports verified against Home Assistant 2026.10.4 inside the HA container.
 
 ## Decisions
 
@@ -38,8 +40,9 @@ private test-host address in this file.**
   request.
 - [x] Write `plan.md`.
 - [x] Write this handoff file.
-- [ ] Create GitHub repository and push bootstrap commit.
-- [ ] Implement integration.
+- [x] Create GitHub repository and push bootstrap commit.
+- [x] Implement integration, translations, README, tests, and CI.
+- [x] Pass local unit tests, compilation, JSON validation, and HA import checks.
 - [ ] Publish release `1.0.0`.
 - [ ] Install and test through HACS.
 - [ ] Create preferred Deepgram RU pipeline.
