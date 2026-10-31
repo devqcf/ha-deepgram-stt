@@ -81,17 +81,17 @@ handoff.md
 - [x] Add English and Russian translations.
 - [x] Add README with HACS install and Russian Assist setup.
 - [x] Add unit tests and CI validation.
-- [ ] Publish release `1.0.0`.
-- [ ] Add the new repo to HACS on the test Home Assistant instance.
-- [ ] Install `1.0.0` through HACS and restart Home Assistant.
-- [ ] Create the Deepgram config entry using the supplied key.
-- [ ] Verify `stt.deepgram_stt` exposes `ru`.
-- [ ] Test the HA STT endpoint with Russian audio.
-- [ ] Test the real Assist pipeline with Russian PCM audio.
-- [ ] Create the preferred **Deepgram RU** pipeline.
-- [ ] Restart Home Assistant and confirm persistence.
-- [ ] Check logs and HACS version.
-- [ ] Record results in `handoff.md`.
+- [x] Publish release `1.0.0`.
+- [x] Add the new repo to HACS on the test Home Assistant instance.
+- [x] Install `1.0.0` through HACS and restart Home Assistant.
+- [x] Create the Deepgram config entry using the supplied key.
+- [x] Verify `stt.deepgram_stt` exposes `ru`.
+- [x] Test the HA STT endpoint with Russian audio.
+- [x] Test the real Assist pipeline with Russian PCM audio.
+- [x] Create the preferred **Deepgram RU** pipeline.
+- [x] Restart Home Assistant and confirm persistence.
+- [x] Check logs and HACS version.
+- [x] Record results in `handoff.md`.
 
 ## Test matrix
 

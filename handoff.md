@@ -6,13 +6,14 @@ private test-host address in this file.**
 
 ## Current status
 
-- Phase: implementation complete, awaiting release and deployment
-- Repository: `devqcf/ha-deepgram-stt` (public, created; bootstrap commit `0bc9dcc`)
+- Phase: complete — released, installed via HACS, and verified end to end
+- Repository: `devqcf/ha-deepgram-stt` (public)
 - Local path: `/Users/meowser/Projects/ha-deepgram-stt`
-- Release: not published
-- HA deployment: not started
-- Local checks: 14 unit tests pass; `compileall` passes; JSON validates;
-  imports verified against Home Assistant 2026.10.4 inside the HA container.
+- Release: `1.0.0` published at
+  https://github.com/devqcf/ha-deepgram-stt/releases/tag/1.0.0
+- HA deployment: installed through HACS, config entry loaded, Russian STT
+  verified through both the STT endpoint and the Assist pipeline
+- CI: `Validate` workflow (unit tests, hassfest, HACS) passed on `10e0f79`
 
 ## Decisions
 
@@ -43,10 +44,34 @@ private test-host address in this file.**
 - [x] Create GitHub repository and push bootstrap commit.
 - [x] Implement integration, translations, README, tests, and CI.
 - [x] Pass local unit tests, compilation, JSON validation, and HA import checks.
-- [ ] Publish release `1.0.0`.
-- [ ] Install and test through HACS.
-- [ ] Create preferred Deepgram RU pipeline.
-- [ ] Final verification and cleanup.
+- [x] Publish release `1.0.0`.
+- [x] Install and test through HACS.
+- [x] Create preferred Deepgram RU pipeline.
+- [x] Final verification and cleanup.
+
+## Verification results (2026-10-31)
+
+- HACS custom repository `devqcf/ha-deepgram-stt` added (category
+  `integration`) and release `1.0.0` installed through the HACS websocket API.
+- Config entry created through the real config flow (REST
+  `/api/config/config_entries/flow`) with model `nova-3`; state `loaded`.
+- `stt.deepgram_stt` advertises 62 languages including `ru` (formats `wav`,
+  codec `pcm`, 16 kHz / 16-bit / mono).
+- Direct STT endpoint test with a Russian WAV:
+  `{"text":"Привет, это тест распознавания русской речи. Включи свет в гостиной.","result":"success"}`
+- Real Assist pipeline test (`assist_pipeline/run`, start/end `stt`, raw PCM
+  frames prefixed with the websocket binary handler id from `run-start`):
+  `stt-end` returned the identical transcript.
+- Pipeline **Deepgram RU** (`01m67zs8am5hzerxa2jtnhbkxh`) created as a clone of
+  the **AI** pipeline with `stt_engine=stt.deepgram_stt`, `stt_language=ru`, and
+  set as preferred. The **Home Assistant** and **AI** pipelines are unchanged.
+- After a full Home Assistant restart: config entry `loaded`, entity present,
+  preferred pipeline still Deepgram RU, and a repeat STT request returned the
+  same transcript. No `deepgram` errors in `home-assistant.log`.
+- Backups taken before changes:
+  `/config/.storage-backups/20261031-pre-deepgram-stt/` on the HA host
+  (`assist_pipeline.pipelines`, `core.config_entries`, `core.entity_registry`,
+  `core.restore_state`).
 
 ## Implementation notes
 
@@ -67,10 +92,10 @@ private test-host address in this file.**
 
 1. Read `plan.md` and this file.
 2. Check `git status` and `git log --oneline`.
-3. Read `plan.md` checkboxes to find the next unfinished item.
-4. If code is pushed, verify the latest release with
-   `gh release list -R devqcf/ha-deepgram-stt`.
-5. If HA testing is in progress, check:
+3. Read `plan.md` checkboxes to find the next unfinished item. All items are
+   complete as of 2026-10-31; new work starts below this line.
+4. Verify the latest release with `gh release list -R devqcf/ha-deepgram-stt`.
+5. To re-verify the deployment, check:
    - `stt.deepgram_stt` entity state
    - HACS installed version
    - HA logs for `deepgram_stt`
